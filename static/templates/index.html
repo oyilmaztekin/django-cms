@@ -1,0 +1,45 @@
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <link href={% static "css/bootstrap.min.css" %} rel="stylesheet"/>
+    <!-- link(href='css/bootstrap-theme.min.css', rel='stylesheet')-->
+    <!-- Custom styles for this template-->
+    <link href={% static "css/main.css" %} rel="stylesheet"/>
+    <title>{{pageName}}</title>
+  </head>
+  <body style="background-color:#eee">
+    <div class="container">
+
+      <form action="" class="form-signin" method="POST">
+        {% csrf_token %} 
+           
+
+          {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+          {% endfor %}  
+
+
+        <h2 class="form-signin-heading">Lütfen Giriş Yapınız</h2>
+        <label for="inputEmail" class="sr-only">Eposta Adresi</label>
+        
+         {{ form.username.errors }}
+         {{ form.username }}
+
+
+        <label for="inputPassword" class="sr-only">Şifre</label>
+        
+        {{ form.password.errors }}
+        {{ form.password }}        
+
+        <button onclick="this.disabled=true;this.value='Giriş Yapılıyor';this.form.submit();" type="submit" class="btn btn-lg btn-primary btn-block">Giriş Yap</button>
+      </form>
+    </div>
+    <!-- Angular Material Dependencies-->
+    <script src={% static "js/jquery-1.11.3.min.js" %}></script>
+    <script src={% static "js/bootstrap.min.js" %}> </script>
+  </body>
+</html>

@@ -1,0 +1,232 @@
+  {% extends "base.html" %}
+
+  {% block content %}
+
+  <div style="margin-top:51px;" class="container-fluid">
+      <div class="row">
+        <div class="col-md-3 col-sm-3 col-lg-3 sidebar">
+          <div class="h4">Listeleme</div>
+          <div class="list-group"><a href="#" class="list-group-item"><span class="glyphicon glyphicon-calendar"></span> Günün Hadiseleri</a><a href="#" class="list-group-item"><span class="glyphicon glyphicon-calendar"></span> Geçmiş 7 Gün</a><a role="button" data-toggle="collapse" href="#tagLists" class="list-group-item"><span class="glyphicon glyphicon-tags"></span> Etiketler  <span class="pull-right glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
+            <div id="tagLists" class="collapse">
+              <div style="padding:5px;"><a href="" class="btn btn-link btn-xs">İslam</a><a href="" class="btn btn-link btn-xs">Türk Dünyası</a><a href="" class="btn btn-link btn-xs">Savaş</a><a href="" class="btn btn-link btn-xs">Dış Tehtid</a><a href="" class="btn btn-link btn-xs">Putin</a><a href="" class="btn btn-link btn-xs">Terör</a><a href="" class="btn btn-link btn-xs">İç Güvenlik</a><a href="" class="btn btn-link btn-xs">İstismar</a></div>
+            </div>
+          </div>
+          <div style="margin-top:30px;" class="h4">Tarih Seç</div>
+          <form>           
+            <input type="date" placeholder="Tarih giriniz" class="form-control"/><br/>
+            <button type="button" class="btn btn-warning">Listele</button>
+            <!-- /input-group-->
+            
+          </form>
+          <div style="margin-top:30px;" class="h4">Tarih Aralığı Seç</div>
+          <form>
+            <input type="date" placeholder="Tarih giriniz" class="form-control"/><span style="line-height:35px;">ile</span>
+            <input type="date" placeholder="Tarih giriniz" class="form-control"/><span style="line-height:35px;">arasındaki</span><br/>
+            <button button="button" type="submit" class="btn btn-warning">Gündemi Listele</button>
+          </form>
+        </div>
+        <div style="margin-top:30px;" class="col-md-9 col-sm-9 col-lg-9">         
+          <div style="margin-top:10px;" class="form-group col-md-2 col-sm-2 col-lg-2">
+            <label for="sel1">Toplu İşlemler:</label>
+            <select id="sel1" class="form-control">
+              <option>Sil                          </option>
+            </select>
+          </div>
+          <div style="margin-top:10px;" class="form-group col-md-3 col-sm-3 col-lg-3">
+            <label for="sel3">Önceliğe Göre Listeleme:</label>
+            <select id="sel3" class="form-control">
+              <option>Tümü            </option>
+              <option>Yüksek</option>
+              <option>Orta</option>
+              <option>Düşük</option>
+            </select>
+          </div>
+          <div style="line-height:98px;" class="small pull-right">Toplam 124 Gündem</div>
+          <div class="clearfix"></div>
+          <form action="#">
+            <table class="table table-hover">
+              <thead>
+                <tr>               
+                  <th>Gündem</th>
+                  <th>Önem Derecesi</th>
+                  <th>Tarih</th>
+                  <th>Etiket</th>
+                  <th>İşlem</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>               
+                  <th width="50%" class="pointer"> 
+                    <input type="checkbox" id="check1"/>
+                    <label for="check1">Ermenistan'ın Azerbaycan'a saldırması </label>
+                  </th>
+                  <td><span class="label label-danger">Yüksek</span></td>
+                  <td><small>30.04.2016</small></td>
+                  <td class="small"><a href="" class="btn btn-link btn-xs">İslam</a><a href="" class="btn btn-link btn-xs">Türk Dünyası</a><a href="" class="btn btn-link btn-xs">Savaş                    </a><a href="" class="btn btn-link btn-xs">Dış Tehdit</a><a href="" class="btn btn-link btn-xs">Putin</a></td>
+                  <td> 
+                    <div role="group" class="btn-group">
+                      <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-warning dropdown-toggle">İşlem Seçiniz<span class="caret"></span></button>
+                      <ul class="dropdown-menu">
+                        <li><a href="#" data-toggle="modal" data-target="#detayGor">Detayları Gör</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#ekle">Düzenle</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Sil</a></li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th width="50%" class="pointer">
+                    <input type="checkbox" id="check2"/>
+                    <label for="check2">HDP'nin 1 Mayıs Eylemleri Çağrısı </label>
+                  </th>
+                  <td><span class="label label-default">Düşük</span></td>
+                  <td><small>30.04.2016</small></td>
+                  <td class="small"><a href="" class="btn btn-link btn-xs">Terör</a><a href="" class="btn btn-link btn-xs">İç Güvenlik</a></td>
+                  <td> 
+                    <div role="group" class="btn-group">
+                      <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-warning dropdown-toggle">İşlem Seçiniz<span class="caret"></span></button>
+                      <ul class="dropdown-menu">
+                        <li><a href="#" data-toggle="modal" data-target="#detayGor">Detayları Gör</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#ekle">Düzenle</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Sil</a></li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th width="50%" class="pointer">
+                    <input type="checkbox" id="check3"/>
+                    <label for="check3">Ensar vakfında gerçekleşen çocuk istismarı</label>
+                  </th>
+                  <td><span class="label label-warning">Orta                  </span></td>
+                  <td><small>30.04.2016</small></td>
+                  <td class="small"><a href="" class="btn btn-link btn-xs">İstismar</a></td>
+                  <td> 
+                    <div role="group" class="btn-group">
+                      <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-warning dropdown-toggle">İşlem Seçiniz<span class="caret"></span></button>
+                      <ul class="dropdown-menu">
+                        <li><a href="#" data-toggle="modal" data-target="#detayGor">Detayları Gör</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#ekle">Düzenle</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Sil</a></li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+          <!--nav
+          ul.pagination
+            li
+              a(href='#', aria-label='Previous')
+                span(aria-hidden='true') «
+            li
+              a(href='#') 1
+            li
+              a(href='#') 2
+            li
+              a(href='#') 3
+            li
+              a(href='#') 4
+            li
+              a(href='#') 5
+            li
+              a(href='#', aria-label='Next')
+                span(aria-hidden='true') »
+          
+          -->
+        </div>
+      </div>
+    </div>
+    <div id="ekle" tabindex="-1" role="dialog" aria-labelledby="ekleLabel" class="modal fade">
+      <div role="document" class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+            <h4 id="ekleLabel" class="modal-title">Gündem Ekle</h4>
+          </div>
+          <div class="modal-body">
+            <form name="kaydet" action="#">
+              <div class="form-group">
+                <label for="gundemAdi">Gündem Adı</label>
+                <input type="text" id="gundemAdi" class="form-control"/>
+              </div>
+              <div class="form-group">
+                <label for="etkiket">Konuyu ifade edecek etiketler</label>
+                <input type="text" id="etkiket" placeholder="eylem, terör, paralel gibi..." class="form-control"/>
+              </div>
+              <div class="form-group">
+                <label for="sel2">Konunun Önemini Belirleyin:</label>
+                <select id="sel2" class="form-control">                                         
+                  <option>Yüksek</option>
+                  <option>Orta</option>
+                  <option>Düşük</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="tarih">Gündem Tarihi</label>
+                <input type="date" id="tarih" class="form-control"/>
+              </div>
+              <div class="form-group">
+                <label for="gorus">Görüşleriniz</label>
+                <textarea id="gorus" rows="3" class="form-control"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-default">Vazgeç</button>
+            <button type="button" class="btn btn-primary">Kaydet</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="detayGor" tabindex="-1" role="dialog" aria-labelledby="detayGorLabel" class="modal fade">
+      <div role="document" class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+            <h4 id="detayGorLabel" class="modal-title">Ermenistan'ın Azerbaycan'a saldırması</h4>
+          </div>
+          <div class="modal-body">
+            <div class="h5">Önem Derecesi</div>
+            <div class="h4"> 
+              <div class="label label-danger">Yüksek</div>
+            </div>
+            <hr/>
+            <div class="h5">Tarih</div>
+            <div class="h4">30.04.2016</div>
+            <hr/>
+            <div class="h5">Etiketler</div>
+            <div class="h4"> 
+              <div class="label label-default"><span class="glyphicon glyphicon-tag"></span> İslam</div>
+              <div class="label label-default"><span class="glyphicon glyphicon-tag"></span> Türk Dünyası</div>
+              <div class="label label-default"><span class="glyphicon glyphicon-tag"></span> Savaş</div>
+              <div class="label label-default"><span class="glyphicon glyphicon-tag"></span> Dış Tehdit</div>
+              <div class="label label-default"><span class="glyphicon glyphicon-tag"></span> Putin</div>
+            </div>
+            <hr/>
+            <div class="h5">Görüşler</div>
+            <div class="h4"> 
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium officiis minima hic magnam ullam consequuntur rem dolorem totam maiores nemo odit architecto iusto aut veritatis, sapiente vitae pariatur voluptatibus enim.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod doloribus voluptatum, minima ab ducimus architecto neque, nam adipisci voluptas quidem nulla, pariatur numquam facere, est consequuntur accusamus. Id repellendus, amet.</p>
+            </div>
+            <hr/>
+            <div class="h5"> <span class="glyphicon glyphicon-user"></span> Ekleyen</div>
+            <div class="h4">Emin Özçalışır</div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-default">Vazgeç</button>
+            <button type="button" class="btn btn-primary">Kaydet</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  {% endblock content %}

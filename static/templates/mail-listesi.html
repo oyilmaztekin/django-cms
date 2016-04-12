@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div style="margin-top:51px;" class="container-fluid">
+      <div class="row">       
+        <div style="margin-top:30px;" class="col-md-9 col-sm-9 col-lg-9 col-md-offset-2 col-lg-offset-2 col-sm-offset-2">
+          <div class="panel panel-default">
+            <div style="background:#ededed!important;font-weight:bold;" class="panel-body">Mail Listesi</div>
+          </div>
+          <div style="margin-top:10px;" class="form-group col-md-3 col-sm-3 col-lg-3">
+            <label for="sel1">Toplu İşlemler:</label>
+            <select id="sel1" class="form-control">
+              <option>Sil                          </option>
+            </select>
+          </div>
+          <div class="clearfix"></div>
+          <form action="#">
+            <table class="table table-hover">
+              <thead>
+                <tr>               
+                  <th>Ad Soyad</th>
+                  <th>Telefon Numarası</th>
+                  <th>Mail adresi</th>
+                  <th>Tanım</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>               
+                  <td width="30%" class="pointer"> 
+                    <input type="checkbox" id="check1"/>
+                    <label for="check1">Özer Yılmaztekin </label>
+                  </td>
+                  <td class="small">0543 919 15 53</td>
+                  <td class="small">yilmaztekin.ozer@gmail.com</td>
+                  <td><small>İBB Halkla İlişkiler Müdürlüğü Sağlık A.Ş. Personeli</small></td>
+                  <td> 
+                    <div role="group" class="btn-group">
+                      <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-warning dropdown-toggle">İşlem Seçiniz<span class="caret"></span></button>
+                      <ul class="dropdown-menu">                      
+                        <li><a data-toggle="modal" data-target="#ekle" href="#">Düzenle</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Sil</a></li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="ekle" tabindex="-1" role="dialog" aria-labelledby="ekleLabel" class="modal fade">
+      <div role="document" class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+            <h4 id="ekleLabel" class="modal-title">Mail Ekle</h4>
+          </div>
+          <div class="modal-body">
+            <form name="kaydet" action="#">
+              <div class="form-group">
+                <label for="gundemAdi">Kişi Adı</label>
+                <input type="text" id="gundemAdi" class="form-control"/>
+              </div>
+              <div class="form-group">
+                <label for="etkiket">Telefon Numarası </label>
+                <input type="text" id="etkiket" class="form-control"/>
+              </div>
+              <div class="form-group">
+                <label for="adres">Mail Adresi</label>
+                <input type="text" id="adres" class="form-control"/>
+              </div>
+              <div class="form-group">
+                <label for="gorus">Tanım</label>
+                <textarea id="gorus" rows="3" class="form-control"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-default">Vazgeç</button>
+            <button type="button" class="btn btn-primary">Kaydet</button>
+          </div>
+        </div>
+      </div>
+    </div>
+	
+{% endblock content %}
