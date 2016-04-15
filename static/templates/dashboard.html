@@ -26,25 +26,20 @@
           </form>
         </div>
         <div style="margin-top:30px;" class="col-md-9 col-sm-9 col-lg-9">         
-          <div style="margin-top:10px;" class="form-group col-md-2 col-sm-2 col-lg-2">
-            <label for="sel1">Toplu İşlemler:</label>
-            <select id="sel1" class="form-control">
-              <option>Sil                          </option>
-            </select>
-          </div>
           <div style="margin-top:10px;" class="form-group col-md-3 col-sm-3 col-lg-3">
             <label for="sel3">Önceliğe Göre Listeleme:</label>
-            <select id="sel3" class="form-control">
-              <option>Tümü            </option>
-              <option>Yüksek</option>
-              <option>Orta</option>
-              <option>Düşük</option>
-            </select>
+            
+              <select id="sel3" class="form-control" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                {% for liste in onem_derecesi   %}
+                  <option value="/gundem/onem_derecesi/{{ liste.slug }}">{{ liste }}</option>
+                {% endfor %}
+              </select>
+            
           </div>
           <div style="line-height:98px;" class="small pull-right">Toplam 124 Gündem</div>
           <div class="clearfix"></div>
           <form action="#">
-            <table class="table table-hover">
+            <table class="table">
               <thead>
                 <tr>               
                   <th>Gündem</th>
@@ -54,72 +49,60 @@
                   <th>İşlem</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>               
-                  <th width="50%" class="pointer"> 
-                    <input type="checkbox" id="check1"/>
-                    <label for="check1">Ermenistan'ın Azerbaycan'a saldırması </label>
-                  </th>
-                  <td><span class="label label-danger">Yüksek</span></td>
-                  <td><small>30.04.2016</small></td>
-                  <td class="small"><a href="" class="btn btn-link btn-xs">İslam</a><a href="" class="btn btn-link btn-xs">Türk Dünyası</a><a href="" class="btn btn-link btn-xs">Savaş                    </a><a href="" class="btn btn-link btn-xs">Dış Tehdit</a><a href="" class="btn btn-link btn-xs">Putin</a></td>
-                  <td> 
-                    <div role="group" class="btn-group">
-                      <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-warning dropdown-toggle">İşlem Seçiniz<span class="caret"></span></button>
-                      <ul class="dropdown-menu">
-                        <li><a href="#" data-toggle="modal" data-target="#detayGor">Detayları Gör</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#ekle">Düzenle</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Sil</a></li>
-                      </ul>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr>
-                  <th width="50%" class="pointer">
-                    <input type="checkbox" id="check2"/>
-                    <label for="check2">HDP'nin 1 Mayıs Eylemleri Çağrısı </label>
-                  </th>
-                  <td><span class="label label-default">Düşük</span></td>
-                  <td><small>30.04.2016</small></td>
-                  <td class="small"><a href="" class="btn btn-link btn-xs">Terör</a><a href="" class="btn btn-link btn-xs">İç Güvenlik</a></td>
-                  <td> 
-                    <div role="group" class="btn-group">
-                      <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-warning dropdown-toggle">İşlem Seçiniz<span class="caret"></span></button>
-                      <ul class="dropdown-menu">
-                        <li><a href="#" data-toggle="modal" data-target="#detayGor">Detayları Gör</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#ekle">Düzenle</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Sil</a></li>
-                      </ul>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr>
-                  <th width="50%" class="pointer">
-                    <input type="checkbox" id="check3"/>
-                    <label for="check3">Ensar vakfında gerçekleşen çocuk istismarı</label>
-                  </th>
-                  <td><span class="label label-warning">Orta                  </span></td>
-                  <td><small>30.04.2016</small></td>
-                  <td class="small"><a href="" class="btn btn-link btn-xs">İstismar</a></td>
-                  <td> 
-                    <div role="group" class="btn-group">
-                      <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-warning dropdown-toggle">İşlem Seçiniz<span class="caret"></span></button>
-                      <ul class="dropdown-menu">
-                        <li><a href="#" data-toggle="modal" data-target="#detayGor">Detayları Gör</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#ekle">Düzenle</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Sil</a></li>
-                      </ul>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
+              
+                
+                {% for gundemler in gundem %}
+                  <tbody>
+                    <tr>
+                      <th width="50%" class="pointer"> 
+                        {{ gundemler.gundem_adi }}
+                      </th>
+                      
+                      <td>
+                        {% if gundemler.onem_derecesi.derece == "Orta"  %}
+                          <span class="label label-warning">
+                          {{ gundemler.onem_derecesi }}
+                        </span>  
+                        {% endif %}
+
+                        {% if gundemler.onem_derecesi.derece == "Yüksek"  %}
+                          <span class="label label-danger">
+                          {{ gundemler.onem_derecesi }}
+                        </span>  
+                        {% endif %}
+
+                        {% if gundemler.onem_derecesi.derece == "Düşük"  %}
+                          <span class="label label-default">
+                          {{ gundemler.onem_derecesi }}
+                        </span>  
+                        {% endif %}
+                        
+                      </td>
+                      
+                      <td><small>{{ gundemler.gundem_tarihi }}</small></td>
+                      
+                      <td class="small">
+                        {% for etiket in gundemler.tags.all %} 
+                          <a href="/gundem/etiket/{{ etiket.slug }}" class="btn btn-link btn-xs">{{ etiket }}</a>
+                        {% endfor %} 
+                      </td>
+
+                      <td> 
+                      <div role="group" class="btn-group">
+                        <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-warning dropdown-toggle">İşlem Seçiniz<span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#" data-toggle="modal" data-target="#detayGor">Detayları Gör</a></li>
+                          <li><a href="#" data-toggle="modal" data-target="#ekle">Düzenle</a></li>
+                          <li role="separator" class="divider"></li>
+                          <li><a href="#">Sil</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                    </tr>
+                  </tbody>
+                {% endfor %}
+
+                
             </table>
           </form>
           <!--nav

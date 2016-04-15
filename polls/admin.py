@@ -1,10 +1,16 @@
 from django.contrib import admin
 from polls.models import UserProfile, OnemDerecesi, MailList, Gundem, User
+from django.utils.text import slugify
 
 # Register your models here.
 class GundemAdmin(admin.ModelAdmin):		 
 	search_fields = ('gundem_adi',)	
 	list_display = ('gundem_adi', 'onem_derecesi', 'ekleyen_kullanici','get_tags',)
+	
+
+	"""def save(self, *args, **kwargs):
+		self.slug = slugify(self.gundem_adi)
+		return super(Gundem, self).save(*args, **kwargs)"""
 
 class MailListAdmin(admin.ModelAdmin):		 
 	search_fields = ('user',)

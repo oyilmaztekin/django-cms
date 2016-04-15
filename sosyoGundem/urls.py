@@ -24,5 +24,7 @@ urlpatterns = [
     url(r'^mail-listesi/', views.mailListesi, name='mailListesi'),
     url(r'^kullanici-listesi/', views.kullaniciListesi, name='kullaniciListesi'),
     url(r'^cikis/', views.cikis, name='cikis'),
+    url(r'^auth_view/', views.auth_view, name='auth_view'),
+    
     
 ]
