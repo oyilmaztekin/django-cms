@@ -5,7 +5,8 @@
       <div class="row">
         <div class="col-md-3 col-sm-3 col-lg-3 sidebar">
           <div class="h4">Listeleme</div>
-          <div class="list-group"><a href="#" class="list-group-item"><span class="glyphicon glyphicon-calendar"></span> Günün Hadiseleri</a><a href="#" class="list-group-item"><span class="glyphicon glyphicon-calendar"></span> Geçmiş 7 Gün</a><!--<a role="button" data-toggle="collapse" href="#tagLists" class="list-group-item"><span class="glyphicon glyphicon-tags"></span> Etiketler  <span class="pull-right glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>-->
+          <div class="list-group"><a href="/gundem-bugun" class="list-group-item"><span class="glyphicon glyphicon-calendar"></span> Günün Hadiseleri</a>
+          <a href="/gundem/gecmis-7-gun" class="list-group-item"><span class="glyphicon glyphicon-calendar"></span> Geçmiş 7 Gün</a><!--<a role="button" data-toggle="collapse" href="#tagLists" class="list-group-item"><span class="glyphicon glyphicon-tags"></span> Etiketler  <span class="pull-right glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>-->
             <!--<div id="tagLists" class="collapse">-->
 
               <div style="padding:5px;">
@@ -37,7 +38,7 @@
           <div style="line-height:98px;" class="small pull-right">Toplam 124 Gündem</div>
           <div class="clearfix"></div>
           <form action="#">
-            <table class="table">
+            <table class="table table-hover">
               <thead>
                 <tr>               
                   <th>Gündem</th>
@@ -92,7 +93,7 @@
                         <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-warning dropdown-toggle">İşlem Seçiniz<span class="caret"></span></button>
                         <ul class="dropdown-menu">
                           <!--<li><a href="/gundem/{{ gundemler.pk }}">Detayları Gör</a></li>-->
-                          <li><a href="#" data-toggle="modal" data-target="#ekle">Düzenle</a></li>
+                          <li><a href="#">Düzenle</a></li>
                           <li role="separator" class="divider"></li>
                           <li><a href="#">Sil</a></li>
                         </ul>
@@ -131,8 +132,5 @@
       </div>
     </div>
 
-  {% include "gundemEkle.html" %}
-
-  {% include "gundemDetayGor.html" %}
   
   {% endblock content %}

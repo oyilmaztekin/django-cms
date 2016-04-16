@@ -15,23 +15,47 @@
     <nav class="navbar navbar-fixed-top bg-warning">
       <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" class="navbar-toggle collapsed"><span class="sr-only">Navigasyon</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/dashboard" class="navbar-brand"><strong><span style="color:#fff;"> SosyoGündem</span></strong></a>
+          <button type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" class="navbar-toggle collapsed">
+            <span class="sr-only">Navigasyon</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <a href="/dashboard" class="navbar-brand"><strong><span style="color:#fff;"> SosyoGündem</span></strong></a>
+
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li>
-              <button data-toggle="modal" data-target="#ekle" style="margin-top:7px;" class="btn btn-link"> <span style="font-size:18px;color:#fff;" class="glyphicon glyphicon-plus"></span></button>
+            <li style="margin-top:7px;">
+              <div class="btn-group">
+                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link dropdown-toggle">
+                <span style="font-size:18px;color:#fff;" class="glyphicon glyphicon-plus"> </span><span class="caret"></span>
+                </button>
+
+                <ul class="dropdown-menu">
+                  <li><a href="/gundem-ekle">Gündem Ekle</a></li>
+                  <li><a href="/mail-ekle">Mail Hesabı Ekle</a></li>
+                  <li><a href="/kullanici-ekle">Kullanıcı Ekle</a></li>
+                </ul>
+              </div>
+
+              <!--<button style="margin-top:7px;" class="btn btn-link"> <span style="font-size:18px;color:#fff;" class="glyphicon glyphicon-plus"></span></button>-->
             </li>
             <li>
               <span style="line-height: 50px;font-weight: 700;font-size: 12px;">{{ user.username }}</span>
             </li>
             <li style="margin-top:7px;">
               <div class="btn-group">
-                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link dropdown-toggle"><span style="font-size:18px;color:#fff;" class="glyphicon glyphicon-cog"> </span><span class="caret"></span></button>
+                
+                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-link dropdown-toggle">
+                <span style="font-size:18px;color:#fff;" class="glyphicon glyphicon-cog"> </span><span class="caret"></span>
+                </button>
+
                 <ul class="dropdown-menu">
                   <li><a href="/dashboard">Gündem Listesi</a></li>
                   <li><a href="/mail-listesi">Mail Listesi</a></li>
-                  <li><a href="/kullanici-listesi">Kullanıcı Listesi                  </a></li>
+                  <li><a href="/kullanici-listesi">Kullanıcı Listesi</a></li>
                   <li role="separator" class="divider"></li>
                   <li><a href="/cikis">Çıkış</a></li>
                 </ul>
