@@ -7,6 +7,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from forms import loginForm
 from models import *
+from django.views.generic.detail import DetailView
+from django.utils import timezone
+
 
 def index(request):
 	if request.user.is_authenticated():
@@ -54,8 +57,7 @@ def auth_view(request):
 	else:
 		return HttpResponseRedirect('/')
 
-		
-@login_required
+@login_required	
 def dashboard(request):
 	current_user = request.user
 	gundem = Gundem.objects.all()
@@ -72,6 +74,22 @@ def dashboard(request):
 	}
 	template = "dashboard.html"
 	return render(request, template, context)
+
+
+
+class GundemDetayView(DetailView):
+
+    queryset = Gundem.objects.all()
+    template_name = "gundem-detay.html"
+
+    def get_object(self):
+        # Call the superclass
+        gundem = super(GundemDetayView, self).get_object()
+        # Record the last accessed date
+        gundem.last_accessed = timezone.now()
+        gundem.save()
+        # Return the object
+        return gundem
 
 @login_required
 def mailListesi(request):

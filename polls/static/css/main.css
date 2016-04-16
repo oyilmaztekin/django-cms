@@ -4,6 +4,8 @@
 .sidebar {
   background: #eeeded !important;
   padding: 20px 20px;
+  height: 100%;
+  
 }
 .pointer label {
   cursor: pointer !important;

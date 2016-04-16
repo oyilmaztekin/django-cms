@@ -21,6 +21,7 @@ urlpatterns = [
 	url(r'^$', views.index, name='index'),
     url(r'^admin/', admin.site.urls),
     url(r'^dashboard/', views.dashboard, name='dashboard'),
+    url(r'^gundem/(?P<pk>[0-9]+)/$', views.GundemDetayView.as_view(), name='gundem-detay'),
     url(r'^mail-listesi/', views.mailListesi, name='mailListesi'),
     url(r'^kullanici-listesi/', views.kullaniciListesi, name='kullaniciListesi'),
     url(r'^cikis/', views.cikis, name='cikis'),

@@ -1,0 +1,95 @@
+  {% extends "base.html" %}
+
+  {% block content %}
+
+  <div style="margin-top:51px;" class="container">
+    <div class="col-md-6 col-md-offset-3">
+      
+      <div class="row" style="margin-top:15px;">
+          <a href="javascript:void(0);" onclick="window.history.go(-1); return false;" class="btn btn-default btn-sm">
+            <span class="glyphicon glyphicon-chevron-left"></span> Geri Dön
+          </a>
+        </div>
+
+      <div class="row">         
+
+        <h1>{{ gundem.gundem_adi }}</h1>
+        
+        <hr>
+
+        <div class="h5">Önem Derecesi</div>
+
+        {% if gundem.onem_derecesi.derece == "Orta"  %}
+        <span class="label label-warning">
+          {{ gundem.onem_derecesi }}
+        </span>  
+        {% endif %}
+
+        {% if gundem.onem_derecesi.derece == "Yüksek"  %}
+        <span class="label label-danger">
+          {{ gundem.onem_derecesi }}
+        </span>  
+        {% endif %}
+
+        {% if gundem.onem_derecesi.derece == "Düşük"  %}
+        <span class="label label-default">
+          {{ gundem.onem_derecesi }}
+        </span>  
+        {% endif %}
+        
+        <hr/>
+        <div class="h5">Tarih</div>
+        <div class="h4">{{ gundem.gundem_tarihi }}</div>
+        <hr/>
+        <div class="h5">Etiketler</div>
+        <div class="h4"> 
+          {% for etiket in gundem.tags.all %}
+          <div class="label label-default">
+            <span class="glyphicon glyphicon-tag"></span> {{ etiket }}</div>
+          {% endfor %} 
+
+          
+        </div>
+
+        <hr/>
+        <div class="h5">Görüşler</div>
+        <div class="h4"> 
+          {{ gundem.gorusler }}
+        </div>
+        <hr/>
+        <div class="small"> <span class="glyphicon glyphicon-user"></span>
+        {{ gundem.ekleyen_kullanici }}</div>
+      </div>
+      <div class="clearfix"></div>
+
+
+      <div class="row" style="margin-top:20px;">
+        <hr>
+        <a href="" class="btn btn-small btn-danger pull-left" data-toggle="modal" data-target="#sil">Sil</a>
+
+        <a href="" class="btn btn-small btn-primary pull-right">Düzenle</a>
+      </div>
+    </div>
+  </div>
+
+    <!-- SİL MODAL-->
+    <div id="sil" tabindex="-1" role="dialog" aria-labelledby="ekleLabel" class="modal fade">
+      <div role="document" class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+            <h4 id="ekleLabel" class="modal-title">DİKKAT</h4>
+          </div>
+          <div class="modal-body">
+            Gündemi silmek istediğinizden emin misiniz? <br>
+            Bu işlem geri alınamaz!
+          </div>
+          <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-default">Vazgeç</button>
+            <button type="button" class="btn btn-danger">Sil</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  {% endblock content %}
