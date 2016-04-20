@@ -1,11 +1,13 @@
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.template.context import RequestContext
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from forms import loginForm
+from django.views.generic.base import View
+from django.views.generic.edit import UpdateView
+from forms import *
 from models import *
 from django.views.generic.detail import DetailView
 from django.utils import timezone
@@ -76,7 +78,6 @@ def dashboard(request):
 	return render(request, template, context)
 
 
-
 class GundemDetayView(DetailView):
 
     queryset = Gundem.objects.all()
@@ -90,6 +91,31 @@ class GundemDetayView(DetailView):
         gundem.save()
         # Return the object
         return gundem
+
+class GundemUpdate(UpdateView):
+	"""template_name = "gundem-update.html"
+	model = Gundem
+	fields = '__all__'"""
+	form_class = gundemForm
+	model = Gundem
+	template_name = "gundem-update.html"
+
+
+
+
+
+
+
+	#fields = ('gundem_adi','tags','onem_derecesi','gundem_tarihi','gorusler')
+
+
+
+#BURAYI YAPACAĞIZ
+@login_required()
+def gundem_check_view(FormView):
+	Gundem.update()
+	print "psd"
+
 
 @login_required
 def mailListesi(request):

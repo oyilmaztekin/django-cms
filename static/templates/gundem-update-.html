@@ -1,0 +1,45 @@
+  {% extends "base.html" %}
+
+  {% block content %}
+
+  <div style="margin-top:51px;" class="container">
+    <div class="col-md-6 col-md-offset-3">
+
+      <div class="row" style="margin-top:15px;">
+          <a href="javascript:void(0);" onclick="window.history.go(-1); return false;" class="btn btn-default btn-sm">
+            <span class="glyphicon glyphicon-chevron-left"></span> Geri Dön
+          </a>
+        </div>
+
+      <div class="row">
+
+        <form action="/gundem_check" class="" method="POST">
+        {% csrf_token %}
+
+            {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+          {% endfor %}
+
+          {% if hata %}
+            <div class="alert alert-danger">
+              {{ hata }}
+            </div>
+          {% endif %}
+
+            <div class="form-group">
+                {{ form.as_p}}
+            </div>
+            <button onclick="this.disabled=true;this.value='Güncelleniyor';this.form.submit();" type="submit" class="btn btn-lg btn-primary btn-block">Güncelle</button>
+        </form>
+
+
+      <div class="row" style="margin-top:20px;">
+        <hr>
+        <a href="" class="btn btn-small btn-danger pull-left" data-toggle="modal" data-target="#sil">Sil</a>
+
+        <a href="" class="btn btn-small btn-primary pull-right">Düzenle</a>
+      </div>
+    </div>
+  </div>
+
+  {% endblock content %}

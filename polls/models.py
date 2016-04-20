@@ -4,6 +4,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
 from django.utils.text import slugify
+import datetime
 
 # Create your models here.
 
@@ -27,7 +28,6 @@ class UserProfile(models.Model):
 	def update(self, *args, **kwargs):
 		#if not self.slug:
 		self.slug = slugify(self.username)
-
 		return super(UserProfile, self).save(*args, **kwargs)
 
 class OnemDerecesi(models.Model):
@@ -73,6 +73,7 @@ class MailList(models.Model):
 	def update(self, *args, **kwargs):
 		self.slug = slugify(self.username)
 
+
 		return super(MailList, self).save(*args, **kwargs)
 	
 class Gundem(models.Model):
@@ -89,20 +90,21 @@ class Gundem(models.Model):
 		verbose_name_plural= 'Gündem Hadiseleri'
 
 	def __unicode__(self):
-		return '%s' % (self.gundem_adi) + "\n"+", ".join([p.name for p in self.tags.all()])
+		return '%s'  % (self.gundem_adi) + "\n"+", ".join([p.name for p in self.tags.all()])
+
 
 	def get_tags(self):
 		return "\n"+", ".join([p.name for p in self.tags.all()])
 
 	def save(self, *args, **kwargs):
 		self.slug = slugify(self.gundem_adi)
+		self.olusturulma_tarihi = datetime.datetime.now()
 		return super(Gundem, self).save(*args, **kwargs)
 
 	def update(self, *args, **kwargs):
 		self.slug = slugify(self.gundem_adi)
-
+		self.olusturulma_tarihi = datetime.datetime.now()
 		return super(Gundem, self).save(*args, **kwargs)
-         
 
 
 
