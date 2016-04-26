@@ -40,22 +40,37 @@
         <hr/>
         <div class="h5">Tarih</div>
         <div class="h4">{{ gundem.gundem_tarihi }}</div>
-        <hr/>
+
+
+
+
+
+
+          <hr/>
         <div class="h5">Etiketler</div>
-        <div class="h4"> 
+        <div class="h4">
           {% for etiket in gundem.tags.all %}
           <div class="label label-default">
             <span class="glyphicon glyphicon-tag"></span> {{ etiket }}</div>
-          {% endfor %} 
+              {% empty %}
+              <small>Etiket girişi yapılmadı...</small>
 
-          
+          {% endfor %}
         </div>
 
-        <hr/>
+
+
+
+        {% if gundem.gorusler != "" %}
+         <hr/>
         <div class="h5">Görüşler</div>
-        <div class="h4"> 
+
+        <div class="h4">
           {{ gundem.gorusler }}
         </div>
+        {% endif %}
+
+
         <hr/>
         <div class="small"> <span class="glyphicon glyphicon-user"></span>
         {{ gundem.ekleyen_kullanici }}</div>

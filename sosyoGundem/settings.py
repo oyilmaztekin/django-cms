@@ -40,35 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'taggit',
     'debug_toolbar',
-    'django_wysiwyg',
-    'ckeditor',
+    #'django_wysiwyg',
 ]
-DJANGO_WYSIWYG_FLAVOR = "ckeditor"
-
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': [
-            [      'Undo', 'Redo',
-              '-', 'Bold', 'Italic', 'Underline',
-              '-', 'Link', 'Unlink', 'Anchor',
-              '-', 'Format',
-              '-', 'SpellChecker', 'Scayt',
-              '-', 'Maximize',
-            ],
-            [      'HorizontalRule',
-              '-', 'Table',
-              '-', 'BulletedList', 'NumberedList',
-              '-', 'Cut','Copy','Paste','PasteText','PasteFromWord',
-              '-', 'SpecialChar',
-              '-', 'Source',
-              '-', 'About',
-            ]
-        ],
-        'width': 840,
-        'height': 300,
-        'toolbarCanCollapse': False,
-    }
-}
 
 
 TAGGIT_CASE_INSENSITIVE = True

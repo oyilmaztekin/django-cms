@@ -84,3 +84,7 @@ ul.errorlist li{
     border-radius: 4px;
     margin-top:10px;
 }
+
+.yui-toolbar-group-fontstyle{
+  display:none!important;
+}
