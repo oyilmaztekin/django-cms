@@ -1,6 +1,11 @@
   {% extends "base.html" %}
 
   {% block content %}
+
+  {% if messages %}
+    {{ messages }}
+  {% endif %}
+
   <div style="margin-top:51px;" class="container-fluid">
       <div class="row">
         <div class="col-md-3 col-sm-3 col-lg-3 sidebar">
@@ -93,7 +98,7 @@
                         <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-warning dropdown-toggle">İşlem Seçiniz<span class="caret"></span></button>
                         <ul class="dropdown-menu">
                           <!--<li><a href="/gundem/{{ gundemler.pk }}">Detayları Gör</a></li>-->
-                          <li><a href="#">Düzenle</a></li>
+                          <li><a href="/gundem-update/{{ gundemler.pk }}">Düzenle</a></li>
                           <li role="separator" class="divider"></li>
                           <li><a href="#">Sil</a></li>
                         </ul>

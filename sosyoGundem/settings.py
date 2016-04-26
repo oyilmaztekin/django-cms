@@ -16,8 +16,6 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/'
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
@@ -41,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'taggit',
+    'debug_toolbar',
 ]
 
 TAGGIT_CASE_INSENSITIVE = True

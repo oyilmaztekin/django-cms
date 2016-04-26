@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.views.generic.base import View
-from django.views.generic.edit import UpdateView
+from django.views.generic.edit import UpdateView, DeleteView
 from forms import *
 from models import *
 from django.views.generic.detail import DetailView
@@ -64,14 +64,13 @@ def dashboard(request):
 	current_user = request.user
 	gundem = Gundem.objects.all()
 	onem = OnemDerecesi.objects.all()
-	title = "SosyoGündem - %s" % current_user 			
+	title = "SosyoGündem - %s" % current_user
 
 	context = {
 		'user':current_user,
 		'gundem':gundem,
 		'pageName':title,
 		'onem_derecesi': onem
-	
 		
 	}
 	template = "dashboard.html"
@@ -99,15 +98,11 @@ class GundemUpdate(UpdateView):
 	form_class = gundemForm
 	model = Gundem
 	template_name = "gundem-update.html"
-
-
-
-
-
-
-
 	#fields = ('gundem_adi','tags','onem_derecesi','gundem_tarihi','gorusler')
 
+class gundemDelete(DeleteView):
+	model = Gundem
+	template_name = "gundem-delete.html"
 
 
 #BURAYI YAPACAĞIZ

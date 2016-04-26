@@ -65,31 +65,11 @@
 
       <div class="row" style="margin-top:20px;">
         <hr>
-        <a href="" class="btn btn-small btn-danger pull-left" data-toggle="modal" data-target="#sil">Sil</a>
+        <a href="/gundem-delete/{{ gundem.pk }}" class="btn btn-small btn-danger pull-left">Sil</a>
 
-        <a href="" class="btn btn-small btn-primary pull-right">Düzenle</a>
+        <a href="/gundem-update/{{ gundem.pk }}" class="btn btn-small btn-primary pull-right">Düzenle</a>
       </div>
     </div>
   </div>
-
-    <!-- SİL MODAL-->
-    <div id="sil" tabindex="-1" role="dialog" aria-labelledby="ekleLabel" class="modal fade">
-      <div role="document" class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-            <h4 id="ekleLabel" class="modal-title">DİKKAT</h4>
-          </div>
-          <div class="modal-body">
-            Gündemi silmek istediğinizden emin misiniz? <br>
-            Bu işlem geri alınamaz!
-          </div>
-          <div class="modal-footer">
-            <button type="button" data-dismiss="modal" class="btn btn-default">Vazgeç</button>
-            <button type="button" class="btn btn-danger">Sil</button>
-          </div>
-        </div>
-      </div>
-    </div>
   
   {% endblock content %}

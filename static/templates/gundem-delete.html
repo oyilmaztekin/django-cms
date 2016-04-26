@@ -14,25 +14,11 @@
       <div class="row">
 
        <form action="" method="post">{% csrf_token %}
-    {% csrf_token %}
+             <h3>Dikkat!</h3>
+            <p> Bu işlem geri alınamaz. Silmek istediğinizden emin misiniz?</p>
 
-            {% for hidden in form.hidden_fields %}
-            {{ hidden }}
-          {% endfor %}
-
-          {% if hata %}
-            <div class="alert alert-danger">
-              {{ hata }}
-            </div>
-          {% endif %}
-
-            <div class="form-group" style="margin-top: 20px">
-                {{ form.as_p}}
-            </div>
-
-
-            <button onclick="this.disabled=true;this.value='Güncelleniyor';this.form.submit();" type="submit" class="btn btn-lg btn-success btn-block">Güncelle</button>
-</form>
+            <button onclick="this.disabled=true;this.value='Siliniyor';this.form.submit();" type="submit" class="btn btn-lg btn-danger btn-block">Sil</button>
+       </form>
 
     </div>
   </div>

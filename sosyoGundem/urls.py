@@ -24,6 +24,8 @@ urlpatterns = [
     url(r'^dashboard/', views.dashboard, name='dashboard'),
     url(r'^gundem/(?P<pk>[0-9]+)/$', login_required(views.GundemDetayView.as_view()), name='gundem-detay'),
     url(r'^gundem-update/(?P<pk>[0-9]+)/$', login_required(views.GundemUpdate.as_view(success_url=('/dashboard'))), name='gundem-update'),
+    url(r'^gundem-delete/(?P<pk>[0-9]+)/$', login_required(views.gundemDelete.as_view(success_url=('/dashboard'))),
+        name='gundem-delete'),
     url(r'^gundem_check', views.gundem_check_view, name='gundem_check'),
     url(r'^mail-listesi/', views.mailListesi, name='mailListesi'),
     url(r'^kullanici-listesi/', views.kullaniciListesi, name='kullaniciListesi'),
