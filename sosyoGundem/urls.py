@@ -23,6 +23,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^dashboard/', views.dashboard, name='dashboard'),
     url(r'^gundem/(?P<pk>[0-9]+)/$', login_required(views.GundemDetayView.as_view()), name='gundem-detay'),
+    url(r'^gundem-create/', login_required(views.GundemCreate.as_view(success_url=('/dashboard'))),
+        name='gundem-create'),
     url(r'^gundem-update/(?P<pk>[0-9]+)/$', login_required(views.GundemUpdate.as_view(success_url=('/dashboard'))), name='gundem-update'),
     url(r'^gundem-delete/(?P<pk>[0-9]+)/$', login_required(views.gundemDelete.as_view(success_url=('/dashboard'))),
         name='gundem-delete'),

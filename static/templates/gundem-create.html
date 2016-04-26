@@ -1,8 +1,10 @@
   {% extends "base.html" %}
 
   {% block content %}
+      {% load wysiwyg %}
+    {% wysiwyg_setup %}
 
-  <div style="margin-top:51px;" class="container" xmlns="http://www.w3.org/1999/html">
+  <div style="margin-top:51px;" class="container">
     <div class="col-md-6 col-md-offset-3">
 
       <div class="row" style="margin-top:15px;">
@@ -26,14 +28,17 @@
             </div>
           {% endif %}
 
+            <div class="form-group" style="margin-top: 20px">
+                {{ form.as_p}}
+            </div>
 
-       <div style="margin-top: 20px;">{{ form.as_p }}</div>
 
-
-            <button onclick="this.disabled=true;this.value='Güncelleniyor';this.form.submit();" type="submit" class="btn btn-lg btn-success btn-block">Güncelle</button>
+            <button onclick="this.disabled=true;this.value='Ekleniyor';this.form.submit();" type="submit" class="btn btn-lg btn-success btn-block">Gündem Ekle</button>
 </form>
 
     </div>
   </div>
+
+  {% wysiwyg_editor "id_gorusler" %}
 
   {% endblock content %}

@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.views.generic.base import View
-from django.views.generic.edit import UpdateView, DeleteView
+from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from forms import *
 from models import *
 from django.views.generic.detail import DetailView
@@ -98,12 +98,27 @@ class GundemUpdate(UpdateView):
 	form_class = gundemForm
 	model = Gundem
 	template_name = "gundem-update.html"
+
+	def form_valid(self, form):
+		ekleyen_kullanici = self.request.user
+		form.instance.ekleyen_kullanici = ekleyen_kullanici
+		return super(GundemUpdate, self).form_valid(form)
+
 	#fields = ('gundem_adi','tags','onem_derecesi','gundem_tarihi','gorusler')
 
 class gundemDelete(DeleteView):
 	model = Gundem
 	template_name = "gundem-delete.html"
 
+class GundemCreate(CreateView):
+	model = Gundem
+	form_class = gundemForm
+	template_name = "gundem-create.html"
+
+	def form_valid(self, form):
+		ekleyen_kullanici = self.request.user
+		form.instance.ekleyen_kullanici = ekleyen_kullanici
+		return super(GundemCreate, self).form_valid(form)
 
 #BURAYI YAPACAĞIZ
 @login_required()

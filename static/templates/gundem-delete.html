@@ -14,9 +14,11 @@
       <div class="row">
 
        <form action="" method="post">{% csrf_token %}
-             <h3>Dikkat!</h3>
-            <p> Bu işlem geri alınamaz. Silmek istediğinizden emin misiniz?</p>
+             <h2>Dikkat!</h2>
+            <p> <span class="text-info"><strong><em>{{ object.gundem_adi }}</em></strong></span> gündemini kalıcı olarak silmek üzeresiniz.</p>
+            <p>Bu işlem geri alınamaz!</p>
 
+           <hr>
             <button onclick="this.disabled=true;this.value='Siliniyor';this.form.submit();" type="submit" class="btn btn-lg btn-danger btn-block">Sil</button>
        </form>
 

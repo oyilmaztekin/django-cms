@@ -100,14 +100,14 @@
                           <!--<li><a href="/gundem/{{ gundemler.pk }}">Detayları Gör</a></li>-->
                           <li><a href="/gundem-update/{{ gundemler.pk }}">Düzenle</a></li>
                           <li role="separator" class="divider"></li>
-                          <li><a href="#">Sil</a></li>
+                          <li><a href="/gundem-delete/{{ gundemler.pk }}">Sil</a></li>
                         </ul>
                       </div>
                     </td>
                     </tr>
                   </tbody>
                   {% empty %}
-                    <h3>Henüz herhangi bir giriş yapılmadı</h3>
+                    <h2 style="margin-bottom: 29px;">Henüz herhangi bir gündem girişi yapılmadı!</h2>
                 {% endfor %}
 
                 
