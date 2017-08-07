@@ -13,15 +13,16 @@ pip paketlerinin kurulumu
 ```pip install -r requirements.txt```
 
 
-pip paketlerinin kurulumu
+database migrations değişiklikleri kontrolü
 
 ```python manage.py makemigrations```
 
 
-pip paketlerinin kurulumu
+database migrationların uygulanması
 
 ```python manage.py migrate```
 
-pip paketlerinin kurulumu
+
+super user
 
 ```python manage.py cratesuperuser```
