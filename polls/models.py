@@ -19,10 +19,10 @@ class UserProfile(models.Model):
         verbose_name_plural = 'Kullanıcılar'
 
     def __unicode__(self):
-        return '%s' % (self.first_name)
+        return '%s' % (self.username)
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.username)
+        self.slug = slugify(self.first_name + self.last_name)
 
         return super(UserProfile, self).save(*args, **kwargs)
 
@@ -35,7 +35,7 @@ class UserProfile(models.Model):
 class OnemDerecesi(models.Model):
     derece = models.CharField(verbose_name="Önem Derecesi", max_length=60)
     olusuturlma_tarihi = models.DateTimeField(editable=False, auto_now_add=True, null=True)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True, editable=False)
 
     class Meta():
         verbose_name_plural = 'Önem Dereceleri'
@@ -56,9 +56,9 @@ class OnemDerecesi(models.Model):
 
 
 class MailList(models.Model):
-    user = models.ManyToManyField(User)
+    user = models.OneToOneField(User,editable=False, on_delete=models.CASCADE,primary_key=True,)
     olusturulma_tarihi = models.DateTimeField(editable=False, auto_now_add=True, null=True)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True, editable=False)
 
     class Meta():
         verbose_name_plural = 'Mail Listesi'

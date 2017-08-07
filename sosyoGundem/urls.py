@@ -33,6 +33,12 @@ urlpatterns = [
     url(r'^kullanici-listesi/', views.kullaniciListesi, name='kullaniciListesi'),
     url(r'^cikis/', views.cikis, name='cikis'),
     url(r'^auth_view/', views.auth_view, name='auth_view'),
+    url(r'^onem-create/', login_required(views.OnemCreate.as_view(success_url=('/dashboard'))),
+        name='onem-create'),
+    url(r'^mail-ekle/', login_required(views.MailCreate.as_view(success_url=('/dashboard'))),
+        name='mail-create'),
+    url(r'^kullanici-ekle/', login_required(views.UserCreate.as_view(success_url=('/dashboard'))),
+        name='user-create'),
     
     
 ]

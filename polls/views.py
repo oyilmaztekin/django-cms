@@ -120,6 +120,33 @@ class GundemCreate(CreateView):
 		form.instance.ekleyen_kullanici = ekleyen_kullanici
 		return super(GundemCreate, self).form_valid(form)
 
+class OnemCreate(CreateView):
+	model = OnemDerecesi
+	form_class = onemForm
+	template_name = "onem-create.html"
+
+	def form_valid(self, form):
+		return super(OnemCreate, self).form_valid(form)
+
+
+class MailCreate(CreateView):
+	model = MailList
+	form_class = mailForm
+	template_name = "mail-create.html"
+
+	def form_valid(self, form):
+		return super(MailCreate, self).form_valid(form)
+
+class UserCreate(CreateView):
+	model = User
+	form_class = userForm
+	template_name = "kullanici-create.html"
+
+	def form_valid(self, form):
+		return super(UserCreate, self).form_valid(form)
+
+
+
 #BURAYI YAPACAĞIZ
 @login_required()
 def gundem_check_view(FormView):
