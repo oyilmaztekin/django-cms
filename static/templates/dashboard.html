@@ -9,11 +9,8 @@
   <div style="margin-top:51px;" class="container-fluid">
       <div class="row">
         <div class="col-md-3 col-sm-3 col-lg-3 sidebar">
-        <span class="muted"></span>
-          <div class="h4">Listeleme(Geliştirilecek)</div>
-          <div class="list-group"><a href="/gundem-bugun" class="list-group-item"><span class="glyphicon glyphicon-calendar"></span> Günün Hadiseleri</a>
-          <a href="/gundem/gecmis-7-gun" class="list-group-item"><span class="glyphicon glyphicon-calendar"></span> Geçmiş 7 Gün</a><!--<a role="button" data-toggle="collapse" href="#tagLists" class="list-group-item"><span class="glyphicon glyphicon-tags"></span> Etiketler  <span class="pull-right glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>-->
-            <!--<div id="tagLists" class="collapse">-->
+          <div class="list-group">
+        
 
               <div style="padding:5px;">
                 <h4 style="padding-left:5px;">Etiketler</h4>
@@ -31,17 +28,6 @@
           
         </div>
         <div style="margin-top:30px;" class="col-md-9 col-sm-9 col-lg-9">         
-          <div style="margin-top:10px;" class="form-group col-md-3 col-sm-3 col-lg-3">
-            <label for="sel3">Önceliğe Göre Listeleme:</label>
-            
-              <select id="sel3" class="form-control" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
-                {% for liste in onem_derecesi   %}
-                  <option value="/gundem/onem_derecesi/{{ liste.pk }}">{{ liste }}</option>
-                {% endfor %}
-              </select>
-            
-          </div>
-          <div style="line-height:98px;" class="small pull-right">Toplam 124 Gündem</div>
           <div class="clearfix"></div>
           <form action="#">
             <table class="table table-hover">
